@@ -1,5 +1,6 @@
 const express = require('express')
 var app = express()
+var port = process.env.YOUR_PORT || process.env.PORT || 3000;
 
 app.get('/', function(req, res) {
   let ip = req.header('x-forwarded-for') 
@@ -8,6 +9,6 @@ app.get('/', function(req, res) {
   res.send(ipServe)
 });
 
-app.listen(3000, function() {
-  console.log('App de Exemplo escutando na porta 3000!');
+app.listen(port, function() {
+  console.log(`App de Exemplo escutando na porta ${port}!`);
 });
